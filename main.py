@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib as plt
 
 # Read the CSV file
 df = pd.read_csv('annual-enterprise-survey-2021-financial-year-provisional-csv.csv')
@@ -13,4 +14,6 @@ grouped_df = df.groupby(['Year', 'Industry_name_NZSIOC']).agg({'Value': 'sum'}).
 grouped_df.rename(columns={'Value': 'Total_Value'}, inplace=True)
 
 # Write the result to a CSV file
-grouped_df.to_csv('test.csv', index=False)
+grouped_df.plot()
+
+plt.show()
